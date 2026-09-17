@@ -17,31 +17,26 @@ public class ProductionRemoteControlCar : IRemoteControlCar, IComparable<Product
     public int DistanceTravelled { get; private set; }
     public int NumberOfVictories { get; set; }
 
-    public void Drive()
-    {
+    public void Drive() =>
         DistanceTravelled += 10;
-    }
 
-    public int CompareTo(ProductionRemoteControlCar other) => NumberOfVictories.CompareTo(other.NumberOfVictories);
+    public int CompareTo(ProductionRemoteControlCar car) =>
+        NumberOfVictories.CompareTo(car.NumberOfVictories);
 }
 
 public class ExperimentalRemoteControlCar : IRemoteControlCar
 {
     public int DistanceTravelled { get; private set; }
 
-    public void Drive()
-    {
+    public void Drive() =>
         DistanceTravelled += 20;
-    }
 }
 
 public static class TestTrack
 {
-    public static void Race(IRemoteControlCar car)
-    {
+    public static void Race(IRemoteControlCar car) =>
         car.Drive();
-    }
 
     public static List<ProductionRemoteControlCar> GetRankedCars(ProductionRemoteControlCar prc1, ProductionRemoteControlCar prc2) =>
-        new List<ProductionRemoteControlCar> { prc1, prc2 }.OrderBy(x => x).ToList();
+        new[] { prc1, prc2 }.OrderBy(car => car).ToList();
 }
