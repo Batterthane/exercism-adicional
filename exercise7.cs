@@ -23,3 +23,20 @@ class RemoteControlCar
 
     private bool IsBatteryEmpty => _batteryPercentage == 0;
 }
+
+class Program
+{
+    static void Main()
+    {
+        RemoteControlCar car = RemoteControlCar.Buy();
+
+        Console.WriteLine(car.DistanceDisplay());
+        Console.WriteLine(car.BatteryDisplay());
+
+        car.Drive();
+        car.Drive();
+
+        Console.WriteLine(car.DistanceDisplay());
+        Console.WriteLine(car.BatteryDisplay());
+    }
+}

@@ -65,7 +65,6 @@ public class WeatherStation
     public State RunSelfTest() => _reading.Equals(new Reading()) ? State.Bad : State.Good;
 }
 
-/*** Please do not modify this struct ***/
 public struct Reading
 {
     public decimal Temperature { get; }
@@ -83,14 +82,12 @@ public struct Reading
     }
 }
 
-/*** Please do not modify this enum ***/
 public enum State
 {
     Good,
     Bad
 }
 
-/*** Please do not modify this enum ***/
 public enum Outlook
 {
     Cool,
@@ -99,12 +96,46 @@ public enum Outlook
     Good
 }
 
-/*** Please do not modify this enum ***/
+
 public enum WindDirection
 {
-    Unknown = 0,    // default
+    Unknown = 0,    
     Northerly,
     Easterly,
     Southerly,
     Westerly
+}
+
+class Program
+{
+    static void Main()
+    {
+        WeatherStation station = new WeatherStation();
+
+        Reading reading = new Reading(
+            25m,
+            8m,
+            2m,
+            WindDirection.Southerly);
+
+        station.AcceptReading(reading);
+
+        Console.WriteLine("Latest temperature: " + station.LatestTemperature);
+        Console.WriteLine("Latest pressure: " + station.LatestPressure);
+        Console.WriteLine("Latest rainfall: " + station.LatestRainfall);
+        Console.WriteLine("Has history: " + station.HasHistory);
+        Console.WriteLine("Short term outlook: " + station.ShortTermOutlook);
+        Console.WriteLine("Long term outlook: " + station.LongTermOutlook);
+        Console.WriteLine("Self test: " + station.RunSelfTest());
+
+        station.AcceptReading(
+            new Reading(
+                55m,
+                12m,
+                0m,
+                WindDirection.Westerly));
+
+        Console.WriteLine("Has history after second reading: " + station.HasHistory);
+        Console.WriteLine("Latest temperature: " + station.LatestTemperature);
+    }
 }

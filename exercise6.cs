@@ -32,3 +32,15 @@ public static class Identifier
         return cleaned.ToString();
     }
 }
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine(Identifier.Clean("hello world"));
+        Console.WriteLine(Identifier.Clean("my-id"));
+        Console.WriteLine(Identifier.Clean("hello-world"));
+        Console.WriteLine(Identifier.Clean("αβγ"));
+        Console.WriteLine(Identifier.Clean("hello\tworld"));
+    }
+}

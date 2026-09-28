@@ -53,3 +53,40 @@ static class Permissions
         return current.HasFlag(check);
     }
 }
+
+class Program
+{
+    static void Main()
+    {
+        Permission guestPermissions =
+            Permissions.Default(AccountType.Guest);
+
+        Permission userPermissions =
+            Permissions.Default(AccountType.User);
+
+        Permission moderatorPermissions =
+            Permissions.Default(AccountType.Moderator);
+
+        Console.WriteLine("Guest: " + guestPermissions);
+        Console.WriteLine("User: " + userPermissions);
+        Console.WriteLine("Moderator: " + moderatorPermissions);
+
+        Permission granted =
+            Permissions.Grant(guestPermissions, Permission.Write);
+
+        Console.WriteLine("Guest after Write: " + granted);
+
+        Permission revoked =
+            Permissions.Revoke(granted, Permission.Read);
+
+        Console.WriteLine("After removing Read: " + revoked);
+
+        Console.WriteLine(
+            "Has Write: " +
+            Permissions.Check(revoked, Permission.Write));
+
+        Console.WriteLine(
+            "Has Delete: " +
+            Permissions.Check(revoked, Permission.Delete));
+    }
+}

@@ -50,3 +50,49 @@ public static class DialingCodes
     public static string FindLongestCountryName(Dictionary<int, string> existingDictionary) =>
         existingDictionary.Values.OrderByDescending(countryName => countryName.Length).FirstOrDefault(string.Empty);
 }
+
+class Program
+{
+    static void Main()
+    {
+        var emptyDictionary = DialingCodes.GetEmptyDictionary();
+
+        var existingDictionary = DialingCodes.GetExistingDictionary();
+
+        DialingCodes.AddCountryToEmptyDictionary(34, "Spain");
+
+        DialingCodes.AddCountryToExistingDictionary(
+            existingDictionary,
+            34,
+            "Spain");
+
+        Console.WriteLine(
+            "Country with code 34: " +
+            DialingCodes.GetCountryNameFromDictionary(existingDictionary, 34));
+
+        DialingCodes.UpdateDictionary(
+            existingDictionary,
+            55,
+            "Brazil Updated");
+
+        Console.WriteLine(
+            "Code 55: " +
+            DialingCodes.GetCountryNameFromDictionary(existingDictionary, 55));
+
+        Console.WriteLine(
+            "Code 91 exists: " +
+            DialingCodes.CheckCodeExists(existingDictionary, 91));
+
+        Console.WriteLine(
+            "Longest country name: " +
+            DialingCodes.FindLongestCountryName(existingDictionary));
+
+        DialingCodes.RemoveCountryFromDictionary(
+            existingDictionary,
+            91);
+
+        Console.WriteLine(
+            "Code 91 exists after removal: " +
+            DialingCodes.CheckCodeExists(existingDictionary, 91));
+    }
+}

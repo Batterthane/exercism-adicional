@@ -2,7 +2,22 @@
 
 //Hello World 
 
-public static class HelloWorld
+using System;
+
+public class HelloWorld
 {
-    public static string Hello() => "Hello, World!";
+    public string Hello()
+    {
+        return "Hello, World!";
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        HelloWorld helloWorld = new HelloWorld();
+
+        Console.WriteLine(helloWorld.Hello());
+    }
 }

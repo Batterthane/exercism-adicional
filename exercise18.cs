@@ -46,3 +46,39 @@ class Wizard : Character
         this.spellReady = true;
     }
 }
+
+
+class Program
+{
+    static void Main()
+    {
+        Warrior warrior = new Warrior();
+        Wizard wizard = new Wizard();
+
+        Console.WriteLine(warrior);
+        Console.WriteLine(wizard);
+
+        Console.WriteLine(
+            "Warrior damage to Wizard: " +
+            warrior.DamagePoints(wizard));
+
+        Console.WriteLine(
+            "Wizard vulnerable: " +
+            wizard.Vulnerable());
+
+        wizard.PrepareSpell();
+
+        Console.WriteLine(
+            "Wizard vulnerable after preparing spell: " +
+            wizard.Vulnerable());
+
+        Console.WriteLine(
+            "Wizard damage to Warrior: " +
+            wizard.DamagePoints(warrior));
+
+        Console.WriteLine(
+            "Warrior damage to Wizard after spell: " +
+            warrior.DamagePoints(wizard));
+    }
+
+}

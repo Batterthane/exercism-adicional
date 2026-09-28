@@ -37,3 +37,30 @@ public static class TelemetryBuffer
             _ => 0
         };
 }
+
+class Program
+{
+    static void Main()
+    {
+        long[] readings =
+        {
+            100,
+            1000,
+            50000,
+            100000,
+            -100,
+            -1000,
+            int.MaxValue,
+            (long)int.MaxValue + 1
+        };
+
+        foreach (long reading in readings)
+        {
+            byte[] buffer = TelemetryBuffer.ToBuffer(reading);
+            long result = TelemetryBuffer.FromBuffer(buffer);
+
+            Console.WriteLine(
+                $"Reading: {reading} -> Buffer size: {buffer[0]} -> Result: {result}");
+        }
+    }
+}

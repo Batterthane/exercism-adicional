@@ -16,7 +16,6 @@ public class SecurityPassMaker
         };
 }
 
-/**** Please do not alter the code below ****/
 
 public interface TeamSupport { string Title { get; } }
 
@@ -39,3 +38,19 @@ public class SecurityJunior : Security { public override string Title { get; } =
 public class SecurityIntern : Security { public override string Title { get; } = "Security Intern"; }
 
 public class PoliceLiaison : Security { public override string Title { get; } = "Police Liaison Officer"; }
+
+class Program
+{
+    static void Main()
+    {
+        SecurityPassMaker passMaker = new SecurityPassMaker();
+
+        Console.WriteLine(passMaker.GetDisplayName(new Manager()));
+        Console.WriteLine(passMaker.GetDisplayName(new Chairman()));
+        Console.WriteLine(passMaker.GetDisplayName(new Physio()));
+        Console.WriteLine(passMaker.GetDisplayName(new Security()));
+        Console.WriteLine(passMaker.GetDisplayName(new SecurityJunior()));
+        Console.WriteLine(passMaker.GetDisplayName(new SecurityIntern()));
+        Console.WriteLine(passMaker.GetDisplayName(new PoliceLiaison()));
+    }
+}

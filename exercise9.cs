@@ -51,3 +51,27 @@ class RaceTrack
         return car.DistanceDriven() >= _distanceInMetres;
     }
 }
+
+class Program
+{
+    static void Main()
+    {
+        RemoteControlCar car = RemoteControlCar.Nitro();
+
+        Console.WriteLine("Distance before driving: " + car.DistanceDriven());
+        Console.WriteLine("Battery drained: " + car.BatteryDrained());
+
+        car.Drive();
+        car.Drive();
+
+        Console.WriteLine("Distance after driving: " + car.DistanceDriven());
+        Console.WriteLine("Battery drained: " + car.BatteryDrained());
+
+        RaceTrack track = new RaceTrack(1000);
+
+        bool finished = track.TryFinishTrack(car);
+
+        Console.WriteLine("Finished track: " + finished);
+        Console.WriteLine("Final distance: " + car.DistanceDriven());
+    }
+}

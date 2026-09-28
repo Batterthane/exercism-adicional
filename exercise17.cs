@@ -31,3 +31,30 @@ static class SavingsAccount
         return years;
     }
 }
+
+class Program
+{
+    static void Main()
+    {
+        decimal balance = 1000m;
+
+        Console.WriteLine(
+            "Interest rate: " +
+            SavingsAccount.InterestRate(balance) +
+            "%");
+
+        Console.WriteLine(
+            "Interest: " +
+            SavingsAccount.Interest(balance));
+
+        Console.WriteLine(
+            "Annual balance update: " +
+            SavingsAccount.AnnualBalanceUpdate(balance));
+
+        Console.WriteLine(
+            "Years before reaching 1500: " +
+            SavingsAccount.YearsBeforeDesiredBalance(
+                balance,
+                1500m));
+    }
+}

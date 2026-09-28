@@ -21,3 +21,29 @@ static class Appointment
     public static DateTime AnniversaryDate() =>
         new(DateTime.Now.Year, 9, 15, 0, 0, 0);
 }
+
+class Program
+{
+    static void Main()
+    {
+        DateTime appointment =
+            Appointment.Schedule("2026-09-27 15:30:00");
+
+        Console.WriteLine("Appointment: " + appointment);
+
+        Console.WriteLine(
+            "Has passed: " +
+            Appointment.HasPassed(appointment));
+
+        Console.WriteLine(
+            "Is afternoon appointment: " +
+            Appointment.IsAfternoonAppointment(appointment));
+
+        Console.WriteLine(
+            Appointment.Description(appointment));
+
+        Console.WriteLine(
+            "Anniversary date: " +
+            Appointment.AnniversaryDate());
+    }
+}

@@ -68,3 +68,42 @@ public class Authenticator
     public static bool AreSameObject(Identity identityA, Identity identityB) => System.Object.ReferenceEquals(identityA, identityB);
     
 }
+
+class Program
+{
+    static void Main()
+    {
+        FacialFeatures face1 = new FacialFeatures("green", 0.9m);
+        FacialFeatures face2 = new FacialFeatures("green", 0.9m);
+
+        Identity identity1 = new Identity(
+            "user@exerc.ism",
+            face1);
+
+        Identity identity2 = new Identity(
+            "admin@exerc.ism",
+            new FacialFeatures("green", 0.9m));
+
+        Authenticator authenticator = new Authenticator();
+
+        Console.WriteLine(
+            "Same face: " +
+            Authenticator.AreSameFace(face1, face2));
+
+        Console.WriteLine(
+            "Is admin: " +
+            authenticator.IsAdmin(identity2));
+
+        Console.WriteLine(
+            "Registered: " +
+            authenticator.Register(identity1));
+
+        Console.WriteLine(
+            "Is registered: " +
+            authenticator.IsRegistered(identity1));
+
+        Console.WriteLine(
+            "Same object: " +
+            Authenticator.AreSameObject(identity1, identity2));
+    }
+}

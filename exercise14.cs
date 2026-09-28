@@ -43,28 +43,14 @@ public static class SimpleOperation
     }
 }
 
-
-
-
-//SimpleOperation
-/*
-
-public static class SimpleOperation
+class Program
 {
-    public static int Division(int operand1, int operand2)
+    static void Main()
     {
-        return operand1 / operand2;
-    }
-
-    public static int Multiplication(int operand1, int operand2)
-    {
-        return operand1 * operand2;
-    }
-
-    public static int Addition(int operand1, int operand2)
-    {
-        return operand1 + operand2;
+        Console.WriteLine(SimpleCalculator.Calculate(10, 5, "+"));
+        Console.WriteLine(SimpleCalculator.Calculate(10, 5, "*"));
+        Console.WriteLine(SimpleCalculator.Calculate(10, 5, "/"));
+        Console.WriteLine(SimpleCalculator.Calculate(10, 0, "/"));
     }
 }
 
-*/

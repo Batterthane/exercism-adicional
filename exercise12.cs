@@ -32,3 +32,26 @@ static class LogLine
 
     public static string OutputForShortLog(LogLevel logLevel, string message) => $"{(int)logLevel}:{message}";
 }
+
+class Program
+{
+    static void Main()
+    {
+        string log1 = "[INF] System started";
+        string log2 = "[ERR] Connection failed";
+        string log3 = "[FTL] Critical error";
+
+        LogLevel level1 = LogLine.ParseLogLevel(log1);
+        LogLevel level2 = LogLine.ParseLogLevel(log2);
+        LogLevel level3 = LogLine.ParseLogLevel(log3);
+
+        Console.WriteLine("Log 1: " + level1);
+        Console.WriteLine("Log 2: " + level2);
+        Console.WriteLine("Log 3: " + level3);
+
+        Console.WriteLine(
+            LogLine.OutputForShortLog(
+                LogLevel.Error,
+                "Something went wrong"));
+    }
+}
