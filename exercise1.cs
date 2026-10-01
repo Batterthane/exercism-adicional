@@ -2,6 +2,11 @@
 
 //Hello World 
 
+/*
+Este ejercicio esta personalizado por mi para que 
+funcione diferente del que pide Exercism para VSCODE!
+*/
+
 using System;
 
 public class HelloWorld
