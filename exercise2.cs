@@ -1,4 +1,4 @@
-// Exercism practica 6 Isandel Abreu
+// Exercism practica 2 Isandel Abreu
 
 //Bird Watcher 
 
